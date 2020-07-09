@@ -1,0 +1,33 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+	<h1>Two Factor Authentication</h1>
+	<p class="lead">Welcome to the demonstration website for Two Factor Authentication</p>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<h2>Account Creation</h2>
+		<p>
+			The purpose of this site is to demonstrate the capabilities and importance of
+			implementing a Two Factor Authentication system into a web application. Click the
+			link below to register a new account and see the Authentication system in action!
+		</p>
+		<p>@Html.ActionLink("Register", "Register", "User") &raquo;</p>
+	</div>
+	<div class="col-md-4">
+		<h2>Already have an account?</h2>
+		<p>If you already have an account created, click the button below to login!</p>
+		<p>@Html.ActionLink("Login", "Login", "User") &raquo;</p>
+	</div>
+	<div class="col-md-4">
+		<h2>Further Details</h2>
+		<p>
+			This application was created using a ASP.NET C# MVC methodology, with an SQL Server backend and interaction with Entity Framework.
+			Learn more about ASP.NET MVC below.
+		</p>
+		<a href="https://dotnet.microsoft.com/apps/aspnet/mvc">Learn more &raquo;</a>
+	</div>
+</div>

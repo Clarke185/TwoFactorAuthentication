@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TwoFactorAuthenticationModelStoreContainer" CdmEntityContainer="TwoFactorAuthenticationEntities">
+    <EntitySetMapping Name="devices">
+      <EntityTypeMapping TypeName="TwoFactorAuthenticationModel.device">
+        <MappingFragment StoreEntitySet="devices">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="device_mac" ColumnName="device_mac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="TwoFactorAuthenticationModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="hashed_password" ColumnName="hashed_password" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+          <ScalarProperty Name="verified" ColumnName="verified" />
+          <ScalarProperty Name="activation_code" ColumnName="activation_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

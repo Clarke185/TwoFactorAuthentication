@@ -22,3 +22,7 @@ You will also need to download and update the required NuGet packages. If you im
 IMPORTANT! Please do not use this application for production-ready work without scrutinizing and testing it first! This was in no way intended to function as a production application, and simply for the purposes of demonstrating Two Factor Authentication capabilities. If you decide to publish an application, at the very least you should encrypt your web.config file to prevent sensitive information being displayed in plaintext.
 
 I'll be happy to answer any questions or queries via jamesmichaelclarke@hotmail.co.uk
+
+Changelog:
+
+09/07/2020 16:37 - Added raw C# code to application for completeness.

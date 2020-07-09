@@ -1,0 +1,59 @@
+﻿@model user
+
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+<h2>@Html.DisplayFor(model => model.username)</h2>
+
+@*<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+    </dl>
+</div>*@
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Your Details</h3>
+        @if (Model.verified.Equals(true)) {
+            <p> Congratulations, you have a verified login! Unfortunately you don't have a blue tick, sorry! </p>
+        } else {
+            <p> You haven't verified your login, as such I don't know how you're reading this, but if you are please don't!</p>
+        }
+    </div>
+    <div class="col-md-4">
+        <h3>Your Bio</h3>
+        @if (String.IsNullOrEmpty(Model.bio))
+        {
+            <p>It appears you haven't added a bio to your profile, add one today and get 50% off absolutely nothing!</p>
+        }
+        else
+        {
+            <p>@Html.DisplayFor(model => model.bio)</p>
+        }
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Home", "Index", "Home")
+</p>

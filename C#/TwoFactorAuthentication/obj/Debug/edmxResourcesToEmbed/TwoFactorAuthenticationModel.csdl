@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TwoFactorAuthenticationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="device">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="user_id" Type="Guid" Nullable="false" />
+    <Property Name="device_mac" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_devices_users" FromRole="devices" ToRole="users" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="hashed_password" Type="Binary" MaxLength="32" FixedLength="true" Nullable="false" />
+    <Property Name="salt" Type="Guid" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="verified" Type="Boolean" Nullable="false" />
+    <Property Name="activation_code" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="devices" Relationship="Self.FK_devices_users" FromRole="users" ToRole="devices" />
+  </EntityType>
+  <Association Name="FK_devices_users">
+    <End Role="users" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="devices" Type="Self.device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="devices">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TwoFactorAuthenticationEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="devices" EntityType="Self.device" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_devices_users" Association="Self.FK_devices_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="devices" EntitySet="devices" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
