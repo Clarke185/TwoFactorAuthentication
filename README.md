@@ -19,7 +19,7 @@ You will need to create your own email address to send your authentication email
 
 You will also need to download and update the required NuGet packages. If you import from template, this should be a relatively straight-forward process.
 
-IMPORTANT! Please do not use this application for production-ready work without scrutinizing and testing it first! This was in no way intended to function as a production application, and simply for the purposes of demonstrating Two Factor Authentication capabilities. If you decide to publish an application, at the very least you should encrypt your web.config file to prevent sensitive information being displayed in plaintext.
+IMPORTANT! Please do not use this application for production-ready work without scrutinizing and testing it first! This was in no way intended to function as a production application, and simply for the purposes of demonstrating Two Factor Authentication capabilities. If you decide to publish an application, at the very least you should encrypt your web.config file to prevent sensitive information being displayed in plaintext. Also, don't use a MAC address as you're 2 form of authentication, they rarely work for client (and will end up pulling the server MAC), and they're easily spoofable. Use Client SSL Certificates instead.
 
 I'll be happy to answer any questions or queries via jamesmichaelclarke@hotmail.co.uk
 
